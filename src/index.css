@@ -1,13 +1,137 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap");
+
+:root {
+  --red: hsl(0, 100%, 68%);
+
+  --very-dark-blue: hsl(230, 29%, 20%);
+  --dark-grayish-blue: hsl(230, 11%, 40%);
+  --grayish-blue: hsl(231, 7%, 65%);
+  --light-grayish-blue: hsl(207, 33%, 95%);
+
+  --font: "Barlow", sans-serif;
+  --font-2: "Barlow Condensed", sans-serif;
+
+  --main-padding: 3rem 14rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.grey-bg {
+  background-color: var(--grayish-blue);
+  position: absolute;
+  height: 50vh;
+  width: 50vw;
+  right: 0;
+  z-index: -1;
+  border-bottom-left-radius: 100px;
+  opacity: 0.7;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: var(--font-2);
+  color: var(--very-dark-blue);
+  font-weight: 700;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.btn-nav {
+  transition: all 0.2s;
+}
+.btn-nav:hover {
+  font-weight: 700;
+  transform: scale(1.2);
+}
+.btn-nav:active {
+  font-weight: 700;
+  transform: scale(0.98);
+}
+.btn:focus {
+  outline: 0;
+}
+
+.main {
+  padding: var(--main-padding);
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  height: 100%;
+  flex: 1;
+}
+
+@media screen and (max-width: 1100px) {
+  :root {
+    --main-padding: 3rem 10rem;
+  }
+  html {
+    font-size: 58%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  :root {
+    --main-padding: 3rem 8rem;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  :root {
+    --main-padding: 3rem 8rem;
+  }
+  html {
+    font-size: 58%;
+  }
+}
+@media screen and (max-width: 900px) {
+  :root {
+    --main-padding: 3rem 6rem;
+  }
+  html {
+    font-size: 52%;
+  }
+  .main {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 50%;
+  }
 }

@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Hero from "./Components/Hero/Hero";
+import ImageSection from "./Components/ImageSection/ImageSection";
+import MobileMenu from "./Components/MobileMenu/MobileMenu";
+import Navbar from "./Components/Navbar/Navbar";
 
-function App() {
+const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app-container">
+      <div className="grey-bg"></div>
+      <header className="header">
+        <Navbar showMenu={isMenuOpen} toggleMenu={toggleMenu} />
       </header>
+      {isMenuOpen ? <MobileMenu showMenu={isMenuOpen} /> : null}
+
+      <main className="main" onClick={closeMenu}>
+        <Hero />
+        <ImageSection />
+      </main>
     </div>
   );
-}
+};
 
 export default App;
